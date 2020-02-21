@@ -1,0 +1,423 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local owlhubsexyaf = Instance.new("ScreenGui")
+local circle = Instance.new("ImageLabel")
+local logo = Instance.new("ImageLabel")
+local uwu = Instance.new("TextLabel")
+
+--Properties:
+
+owlhubsexyaf.Name = "owlhubsexyaf"
+owlhubsexyaf.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+circle.Name = "circle"
+circle.Parent = owlhubsexyaf
+circle.AnchorPoint = Vector2.new(0.5, 0.5)
+circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+circle.BackgroundTransparency = 1.000
+circle.ClipsDescendants = true
+circle.Position = UDim2.new(0.5, 0, 0.5, 0)
+circle.Image = "rbxassetid://200182847"
+circle.ImageColor3 = Color3.fromRGB(18, 18, 18)
+
+logo.Name = "logo"
+logo.Parent = circle
+logo.AnchorPoint = Vector2.new(0.5, 0.5)
+logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+logo.BackgroundTransparency = 1.000
+logo.ClipsDescendants = true
+logo.Position = UDim2.new(0.5, 0, 0.5, 0)
+logo.Size = UDim2.new(0, 150, 0, 150)
+logo.ZIndex = 2
+logo.Image = "http://www.roblox.com/asset/?id=4711644647"
+
+uwu.Name = "uwu"
+uwu.Parent = circle
+uwu.AnchorPoint = Vector2.new(0.5, 1)
+uwu.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+uwu.BackgroundTransparency = 1.000
+uwu.Position = UDim2.new(0.5, 0, 0.912, 0)
+uwu.Size = UDim2.new(0, 105, 0, 28)
+uwu.Text = "DeadHub"
+uwu.TextColor3 = Color3.fromRGB(255, 255, 255)
+uwu.TextSize = 14.000
+
+-- Scripts:
+
+local function JFJJJ_fake_script() -- uwu.LocalScript 
+	local script = Instance.new('LocalScript', uwu)
+
+	function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
+	
+	counter = 0
+	
+	while wait(0.1)do
+	 script.Parent.TextColor3 = Color3.fromHSV(zigzag(counter),1,1)
+	 
+	 counter = counter + 0.01
+	end
+end
+coroutine.wrap(JFJJJ_fake_script)()
+local function FYJYZ_fake_script() -- owlhubsexyaf.LocalScript 
+	local script = Instance.new('LocalScript', owlhubsexyaf)
+
+	local owo = script.Parent.circle
+	
+	if game:GetService("RunService"):IsStudio() then repeat wait() until game:IsLoaded() else print('free sex') end
+	wait(1)
+	owo:TweenPosition(UDim2.new(0.5,0,0.5,0),Enum.EasingDirection.In,Enum.EasingStyle.Linear,.7,false,function()
+		owo:TweenSize(UDim2.new(0,250,0,250),Enum.EasingDirection.In,Enum.EasingStyle.Linear,.7,false,function() 
+			wait(3)
+			owo:TweenSize(UDim2.new(0,0,0,0),Enum.EasingDirection.In,Enum.EasingStyle.Linear,.7,false,function()
+				print("yes")
+			end)
+		end)
+	end)
+end
+coroutine.wrap(FYJYZ_fake_script)()
+
+wait(3)
+game.StarterGui:SetCore("SendNotification", {
+Title = "Welcome "..game.Players.LocalPlayer.Name; -- the title (ofc)
+Text = "Thanks for using DeadHub."; -- what the text says (ofc)
+Duration = 5; -- how long the notification should in secounds
+})
+wait(6)
+game.StarterGui:SetCore("SendNotification", {
+Title = "Loaded"; -- the title (ofc)
+Text = ""; -- what the text says (ofc)
+Duration = 5; -- how long the notification should in secounds
+})
+
+
+local library = loadstring(game:HttpGet("https://pastebin.com/raw/eWKgbdix", true))()
+local w = library:CreateWindow('Local Player')
+w:Section('Local Player')
+local old = workspace.CurrentCamera.FieldOfView
+local s = w:Slider("FOV", {
+   min = math.floor(workspace.CurrentCamera.FieldOfView);
+   max = 120;
+   flag = 'fov'
+}, function(v)
+   workspace.CurrentCamera.FieldOfView = v;
+end)
+local b2 = w:Button('Reset FOV', function()
+   s:Set(old)
+end)
+
+local box = w:Box('WalkSpeed', {
+   flag = "ws";
+   type = 'number';
+}, function(new, old, enter)
+   print(new, old, enter)
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(new)
+end)
+local b2 = w:Button('Reset WalkSpeed', function()
+   game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end)
+
+local box = w:Box('JumpPower', {
+   flag = "ws";
+   type = 'number';
+}, function(new, old, enter)
+   print(new, old, enter)
+   game.Players.LocalPlayer.Character.Humanoid.JumpPower = tonumber(new)
+end)
+local b = w:Button('Reset JumpPower', function()
+   game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = 50
+end)
+
+local w = library:CreateWindow('DeadHub Scripts')
+w:Section('All Scripts')
+
+local b = w:Button('Kill All Police', function()
+game.StarterGui:SetCore('SendNotification', {
+Title = 'Killed All Police';
+Text = "Enjou";
+Duration = 5;
+   })
+
+for i,v in pairs(Workspace:GetChildren()) do
+if v:FindFirstChild("Humanoid") then
+Workspace.resources.RemoteEvent:FireServer("dealDamage", v.Humanoid, 100)
+end
+end   
+end)
+
+local b = w:Button('Taze All Police', function()
+game.StarterGui:SetCore('SendNotification', {
+Title = 'Tazed All Police';
+Text = "enjoy this script";
+Duration = 5;
+   })
+
+for _, v in pairs(game.Players:GetChildren()) do
+game.Workspace.resources.RemoteEvent:FireServer("tase", v) --keep in mind friendly fire is off
+end
+end)
+
+local b = w:Button('Cuff All', function()
+game.StarterGui:SetCore('SendNotification', {
+Title = 'Cuffing All';
+Text = "vuax didn't create this script";
+Duration = 5;
+   })
+
+for _, v in pairs(game.Players:GetChildren()) do
+game.Workspace.resources.RemoteEvent:FireServer("cuff", v) 
+end
+end)
+
+w:Section('Scripts')
+
+local b = w:Button('Give Items', function()
+game.StarterGui:SetCore('SendNotification', {
+Title = 'Bypassing Anti-Giver';
+Text = "yes";
+Duration = 5;
+   })
+wait(5)
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "M98B")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "Revolver")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "UMP-45")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "Parachute")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "ACR")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "M60")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "M14")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "Fake ID Card")
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "Shank")
+end)
+
+local b = w:Button('Big B0i Heads', function()
+--Made by mis#0123 / rewaved @ v3rmillion.net
+
+local toggle = false
+local UIS = game:GetService("UserInputService")
+local Size = Vector3.new(2,2,2) --Change 2,2,2 to desired head size. Numbers represent (x,y,z).
+local Key = "E" --Change C to the desired key.
+local function Notify(...)
+    game.StarterGui:SetCore('SendNotification',...)
+end
+
+
+UIS.InputBegan:Connect(function(k)
+if k.KeyCode == Enum.KeyCode[Key] then
+    toggle = not toggle
+    for k,v in next, game:GetService('Players'):GetPlayers() do
+    if v.Character:FindFirstChild('Head') then
+        local Head = v.Character:FindFirstChild('Head')
+        Head.Size = Vector3.new(2,1,1)
+        Head.Size = Size
+        game.Players.LocalPlayer.Character.Head.Size = Vector3.new(2,1,1)
+    if toggle then
+        Head.Size = Vector3.new(2,1,1)
+end
+    end        
+    end
+end    
+end)
+
+Notify({Title="Big Head Loaded";Text="Welcome "..game.Players.LocalPlayer.Name})
+end)
+
+local b = w:Button('Minigun Giver', function()
+game.StarterGui:SetCore('SendNotification', {
+Title = 'Importing Minigun';
+Text = "vouch +1 rep";
+Duration = 5;
+   })
+wait(5)
+game.Workspace.resources.RemoteFunction:InvokeServer("giveItem", "Minigun")
+end)
+
+local b = w:Button('XRay Walls', function()
+game.StarterGui:SetCore('SendNotification', {
+Title = 'XRayed Walls';
+Text = "Press X to activate";
+Duration = 5;
+   })
+
+
+local t=false
+
+local function scan(z,t)
+for _,i in pairs(z:GetChildren()) do
+if i:IsA("BasePart") and not i.Parent:FindFirstChild("Humanoid") and not i.Parent.Parent:FindFirstChild("Humanoid") then
+i.LocalTransparencyModifier=t
+end
+
+scan(i,t)
+end
+end
+
+function x(v)
+if v then
+scan(workspace,0.5)
+else
+scan(workspace,0)
+end
+end
+
+game:GetService("UserInputService").InputBegan:connect(function (input)
+if input.UserInputType==Enum.UserInputType.Keyboard and input.KeyCode==Enum.KeyCode.X then
+t=not t
+x(t)
+end
+end)
+end)
+
+local b = w:Button('Anti-AFK', function()
+game.StarterGui:SetCore('SendNotification', {
+Title = 'Anti-AFK on';
+Text = "";
+Duration = 5;
+   })
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+end)
+
+local b = w:Button('ESP', function()
+game.StarterGui:SetCore('SendNotification', {
+Title = 'ESP on';
+Text = "";
+Duration = 5;
+   })
+loadstring(game:HttpGet("https://pastebin.com/raw/A84cMe8w"))();
+end)
+
+local b = w:Button('BTools', function()
+game.StarterGui:SetCore('SendNotification', {
+Title = 'Imported BTools';
+Text = "";
+Duration = 5;
+   })
+local tool1 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+local tool2 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+local tool3 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+local tool4 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+local tool5 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+tool1.BinType = "Clone"
+tool2.BinType = "GameTool"
+tool3.BinType = "Hammer"
+tool4.BinType = "Script"
+tool5.BinType = "Grab"
+end)
+
+local b = w:Button('Admin', function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+end)
+
+local w = library:CreateWindow('Teleports')
+w:Section('Teleports')
+
+local b = w:Button('Courtyard', function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(243.07106, 2.3200254, -80.9014206))
+end)
+
+local b = w:Button('Lunchroom', function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(4.08053064, 4, -144.190895))
+end)
+
+local b = w:Button('Cells', function()
+	game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-2.1252234, 3.99408817, 38.6809654))
+end)
+
+local b = w:Button('Vents', function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(45.8967972, 17, 88.6420212))
+end)
+
+local b = w:Button('Helipad', function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(263.467377, 6.9100132, 113.983261))
+end)
+
+local b = w:Button('Jailtop', function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(105.896927, 34, 12.4054184))
+end)
+
+local b = w:Button('Kitchen', function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-49.4526825, 4, -122.646904))
+end)
+
+local b = w:Button('Security Room', function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(66.4363861, 4, 4.59404564))
+end)
+
+local b = w:Button('Cake', function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(108.500664, 4, -27.2045383))
+end)
+
+local b = w:Button('Prison Front', function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(150.264099, 4, -230.023178))
+end)
+
+local b = w:Button('ATV', function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-2.77235317, 5.5, -279.359253))
+end)
+
+local b = w:Button('Watch Tower', function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(178.239044, 44.9900742, -211.372543))
+end)
+
+local b = w:Button('Mercenary Shed', function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-618.375488, -24.7882366, -333.008667))
+end)
+
+local w = library:CreateWindow('Team Swapper')
+w:Section('Team Swapper')
+
+local b = w:Button('Join Police', function()
+if Team == 1 then
+game.Workspace.resources.RemoteFunction:InvokeServer("requestTeam", "prisoners")
+print("You are now a Prisoner.")
+end
+end)
+
+local b = w:Button('Join Prisoners', function()
+if Team == 2 then
+game.Workspace.resources.RemoteFunction:InvokeServer("requestTeam", "police")
+print("You are now a Police Officer.")
+end
+end)
+
+local w = library:CreateWindow('Extras')
+w:Section('Extras')
+
+w:Bind("Kill Player", {
+   flag = "killbind";
+   kbonly = true;
+   default = Enum.KeyCode.RightAlt;
+}, function()
+   game.Players.LocalPlayer.Character:BreakJoints()
+end)
+
+local b = w:Button("Kick Yourself", function()
+local ExSecure = loadstring(game:HttpGet("https://pastebin.com/raw/kxPBzk3L", true))()
+ExSecure:RunSecure("c627c3aa36f9b3e53619eceed03f9ac4e1961c2cd802f87f510fb7df22afeabf1f4d2666c9c235d595b525a56a99b1bf0df93825d3e523db4fef56718dc07f1e7a2448b79aa1ac4f12abddfd69486176b324e13bd2eebeffd8349c27a71290cd7e98c0a0aad075cf18096c51f65402e2a9b8fe3c052e764d58896a9f676cc4bd77282a7e5c6d5d3e1cac5fed3923d6fd529705efa19dbbdff5df34a1e862e8ab4347f11f6bbc8089e8a218883f36d258c305a81c56104ecb0a70c5755358023777fa0fa9d18b585c9b9e989fe62e6ab892f11e265a7e0faefb876e5373979210776b6d7dc46dacdf7f37cda18dc3eeb768bb5cdb8855b782bc5e48602111053215bb6a65c55c01f2d27c78aa52a66f062f12f076f92e6a8521874db9e31579a470e606e50cf19076a179965f4672e954f228ea184085db837d418156dab66dd905e0fc0d488f6828406f16c0e19bb7ab2bf22db6c73212437d3603a6cae1fd6aa7f2d6480ba04d2b0af79c3de57d80a7a3aa47a9f93bd45b120d82604a3733e91ef448036f2dd73551e52645628cf84add98bc819c66e1be365f23c6d29554db9bfbfb9d6cd41a30ec9a7b652ff5c43c00f4f0ae480e5bfc32a5325a8a66788659db36dbfb85268a9dbe547a0bee0531d16fb8ff20e67056e0d278ff8a31b92745e3e5e30c5f3c86332192e705a28c5674079e8dd3b9306654009510ba8f4b06c65777eb48f2518ca051a2a50fc5924b29fd612885aa7a2557414d0db6e088d234d58d249b5a3dd26fafcf188d52a23fe547a881ea8b8d698a1940ee3c32e786a52c891bf0d019fda3375d2c4775101ac96676fd1bb35d23add115356679d894bd08829ca238e8f64acc2514ffe2b521ea4bd5c0653ea4ea01f04f26526fb92b93d6a46a87adc77b6a6940b564fd382ff5175a1543aa0a5ce39154e319f633d397787b9aca570fef1aec0442ad3ab0bb0fd45cbda8956cfca8ca5a3444a07a2a2555f2ead58504998ce6b16c6425a903815a15ffd651d1e835b634d4d42a2e73b45bee3ad6cda8ca663e9b8edcb788d8f59a2243955fd90c80623d65d4e0f5400c631e3e070fbff1dcd1bc914effd8378dab74ef91d1d0af54cf259225a45ffe8fb2d9d282502a6c7214a22b21388565d9a2c0950062455292e6566fa33eee9136720411bfcf5d536c56491f")
+end)
+
+local b = w:Button("Hentai", function()
+game.StarterGui:SetCore('SendNotification', {
+Title = 'Horny kid';
+Text = "This script was made by autist69420";
+Duration = 5;
+   })
+
+local ExSecure = loadstring(game:HttpGet("https://pastebin.com/raw/kxPBzk3L", true))()
+ExSecure:RunSecure("c627c3aa36f9b3e53619eceed03f9ac4e1961c2cd802f87f510fb7df22afeabf1f4d2666c9c235d595b525a56a99b1bf0df93825d3e523db4fef56718dc07f1e7a2448b79aa1ac4f12abddfd69486176b324e13bd2eebeffd8349c27a71290cd7e98c0a0aad075cf18096c51f65402e2a9b8fe3c052e764d58896a9f676cc4bd77282a7e5c6d5d3e1cac5fed3923d6fd529705efa19dbbdff5df34a1e862e8ab4347f11f6bbc8089e8a218883f36d258c305a81c56104ecb0a70c5755358023777fa0fa9d18b585c9b9e989fe62e6ab892f11e265a7e0faefb876e5373979210776b6d7dc46dacdf7f37cda18dc3eeb768bb5cdb8855b782bc5e48602111053215bb6a65c55c01f2d27c78aa52a66f062f12f076f92e6a8521874db9e31579a470e606e50cf19076a179965f4672e954f228ea184085db837d418156dab66dd905e0fc0d488f6828406f16c0e19bb7ab2bf22db6c73212437d3603a6cae1fd6aa7f2d6480ba04d2b0af79c3de57d80a7a3aa47a9f93bd45b120d82604a3733e91ef448036f2dd73551e52645628cf84add98bc819c66e1be365f23c6d29554db9bfbfb9d6cd41a30ec9a7b652ff5c43c00f4f0ae480e5bfc32a5325a8a66788659db36dbfb85268a9dbe547a0bee0531d16fb8ff20e67056e0d278ff8a31b92745e3e5e30c5f3c86332192e705a28c5674079e8dd3b9306654009510ba8f4b06c65777eb48f2518ca051a2a50fc5924b29fd612885aa7a2557414d0db6e088d234d58d249b5a3dd26fafcf188d52a23fe547a881ea8b8d698a1940ee3c32e786a52c891bf0d019fda3375d2c4775101ac96676fd1bb35d23add115356679d894bd08829ca238e8f64acc2514ffe2b521ea4bd5c0653ea4ea01f04f26526fb92b93d6a46a87adc77b6a6940b564fd382ff5175a1543aa0a5ce39154e319f633d397787b9aca570fef1aec0442ad3ab0bb0fd45cbda8956cfca8ca5a3444a07a2a2555f2ead58504998ce6b16c6425a903815a15ffd651d1e835b634d4d42a2e73b45bee3ad6cda8ca663e9b8edcb788d8f59a2243955fd90c80623d65d4e0f5400c631e3e070fbff1dcd1bc914effd8378dab74ef91d1d0af54cf259225a45ffe8fb2d9d282502a6c7214a22b21388565d9a2c0950062455292e6566fa33eee9136720411bfcf5d536c56491f")
+end)
+
+
+local w = library:CreateWindow('Credits')
+w:Section('Extras')
+w:Section('UI - Wally')
+w:Section('Dev - ReaperFrench')
+w:Section('Scripts - ReaperFrench And Vuax')
+w:Section('Owner - Vuax')
+w:Section('Obf - Sovw')
